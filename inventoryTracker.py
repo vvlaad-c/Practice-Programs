@@ -28,15 +28,6 @@ def add_a_product():
     # Using the product methods
     new_product.show_name()
 
-def remove_a_product(inventory):
-    product_name = pyip.inputStr(
-        prompt="Please enter the name of the product you wish to remove: "
-    )
-
-    inventory.remove_item(product_name)
-    print("Item successfully removed from inventory!")
-    print()
-    
 
 while True:
     print("Please enter a valid option:")
@@ -49,8 +40,12 @@ while True:
         add_a_product()
 
     elif user_decision == 2:
-        remove_a_product(inventory)
-    
+        name = pyip.inputStr("Please enter the name of the product you wish to remove: ")
+        inventory.remove_item(name)
+        
+        print("Item successfully removed from inventory!")
+        print()
+
     elif user_decision == 3:
         inventory.display_items()
     
