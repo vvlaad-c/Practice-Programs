@@ -8,10 +8,10 @@ class Product:
         self.price = price
     
     def show_name(self):
-        print(f"Product name: {self.name}")
+        return self.name
     
     def show_price(self):
-        print(f"Product price: {self.price}")
+        return self.price
 
 # Creating the inventory class
 class Inventory:
@@ -32,6 +32,14 @@ class Inventory:
             raise Exception("The product you are trying to remove does not exist in inventory")
     
     def display_items(self):
-        for key, value in self.inventory.items():
-            print(f"Product: {key}")
-            print(f"Quantity: {value}")
+        details = {}
+        for product, quantity in self.inventory.items():
+            name = product.show_name()  # Retrieve the product name using show_name()
+            if name in details:
+                details[name] += quantity
+            else:
+                details[name] = quantity
+        
+        for product_name, total_quantity in details.items():
+            print(f"Product name: {product_name}")
+            print(f"Quantity: {total_quantity}")

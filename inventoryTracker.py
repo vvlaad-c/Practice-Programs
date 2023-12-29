@@ -10,16 +10,15 @@ inventory = Inventory(inventory_data)
 
 # Interacting with the user, manipulating the inventory
 user_options = [
-    "add product", "remove product", "display_items"
+    "add product", "remove product", "display items"
     ]
 
 def add_a_product():
     # Getting the values
     product_name = pyip.inputStr(prompt="Please enter the name of the product: ")
-    price = pyip.inputNum(prompt="Please enter the price of the product: ")
 
     # Creating a Product instance
-    new_product = Product(product_name, price)
+    new_product = Product(product_name, 0)
 
     # Adding the product to the inventory
     inventory.add_item(new_product)
@@ -28,11 +27,10 @@ def add_a_product():
 
     # Using the product methods
     new_product.show_name()
-    new_product.show_price()
 
-def remove_a_product():
+def remove_a_product(inventory):
     product_name = pyip.inputStr(
-        prompt="Please enter the name of the product you wish to remove"
+        prompt="Please enter the name of the product you wish to remove: "
     )
 
     inventory.remove_item(product_name)
@@ -45,13 +43,17 @@ while True:
     for index, option in enumerate(user_options, start=1):
         print(f"{index}. {option}")
     
-    user_decision = pyip.inputNum(min=1, max=3)
+    user_decision = pyip.inputNum(min=1, max=4)
 
     if user_decision == 1:
         add_a_product()
 
     elif user_decision == 2:
-        remove_a_product()
+        remove_a_product(inventory)
     
     elif user_decision == 3:
         inventory.display_items()
+    
+    elif user_decision == 4:
+        break
+    
