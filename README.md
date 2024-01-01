@@ -8,3 +8,6 @@
     example of a calculator using classes, I made a very simple kivy interface so that the program is more eligible and user-friendly
 
  3. The inventory_tracker.py is a more complex modular program that can be used to maintain an invetory by a company
+
+ 4. The recipe manager program will be a program that lets you create a recipe manager system, you can add or remove a recipe
+    and you can also categorize the recipes
